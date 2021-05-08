@@ -11,6 +11,9 @@ interface BaseDao<T> {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(element: T)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertList(element: List<T>)
+
     @Update
     fun update(element: T)
 }

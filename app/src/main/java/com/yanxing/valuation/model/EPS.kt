@@ -12,7 +12,7 @@ data class EPS(
      */
     var forecast:String,
     /**
-     * 真实
+     * 实际
      */
     var real:String,
     /**

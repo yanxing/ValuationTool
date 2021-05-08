@@ -1,13 +1,10 @@
-package com.yanxing.valuation
+package com.yanxing.valuation.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 
-/**
- *
- */
 abstract class BaseActivity<T : ViewDataBinding> :AppCompatActivity() {
 
     protected lateinit var viewBinding:T

@@ -12,50 +12,50 @@ data class Report(
      */
     var number: String,
     /**
-     * business volume for the first quarter
+     * 一季度营业收入
      */
-    var firstQuarterBV: String,
+    var firstQuarterBV: Double?=null,
     /**
-     * the year-on-year growth rate
+     * 一季度营业收入同比增长
      */
-    var compareFirstQuarterBV:String,
+    var compareFirstQuarterBV:String="",
     /**
-     * retained profits for the first quarter
+     * 一季度净利润
      */
-    var firstQuarterRP: String,
+    var firstQuarterRP: Double?=null,
     /**
-     * the year-on-year growth rate
+     *一季度净利润同比增长
      */
-    var compareFirstQuarterRP: String,
+    var compareFirstQuarterRP: String="",
     /**
-     * deduct retained profits for the first quarter
+     * 一季度扣非净利润
      */
-    var firstQuarterDeductRP: String,
+    var firstQuarterDeductRP: Double?=null,
     /**
-     * the year-on-year growth rate
+     * 一季度扣非净利润同比增长
      */
-    var compareFirstQuarterDeductRP:String,
+    var compareFirstQuarterDeductRP:String="",
 
-    var halfYearBV:String,
-    var compareHalfYearBV:String,
-    var halfYearRP:String,
-    var compareHalfYearRP: String,
-    var halfYearDeductRP:String,
-    var compareHalfYearDeductRP: String,
+    var halfYearBV:Double?=null,
+    var compareHalfYearBV:String="",
+    var halfYearRP:Double?=null,
+    var compareHalfYearRP: String="",
+    var halfYearDeductRP:Double?=null,
+    var compareHalfYearDeductRP: String="",
 
-    var thirdQuarterBV:String,
-    var compareThirdQuarterBV:String,
-    var thirdQuarterRP: String,
-    var compareThirdQuarterRP: String,
-    var thirdQuarterDeductRP: String,
-    var compareThirdQuarterDeductRP: String,
+    var thirdQuarterBV:Double?=null,
+    var compareThirdQuarterBV:String="",
+    var thirdQuarterRP: Double?=null,
+    var compareThirdQuarterRP: String="",
+    var thirdQuarterDeductRP: Double?=null,
+    var compareThirdQuarterDeductRP: String="",
 
-    var yearBV:String,
-    var compareYearBV: String,
-    var yearRP:String,
-    var compareYearRP: String,
-    var yearDeductRP:String,
-    var compareYearDeductRP: String,
+    var yearBV:Double?=null,
+    var compareYearBV: String="",
+    var yearRP:Double?=null,
+    var compareYearRP: String="",
+    var yearDeductRP:Double?=null,
+    var compareYearDeductRP: String="",
     /**
      * 年份
      */

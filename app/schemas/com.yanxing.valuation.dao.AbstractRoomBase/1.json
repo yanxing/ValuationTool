@@ -1,0 +1,190 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "4a8415b9245ca638b98ff74018a3c5c2",
+    "entities": [
+      {
+        "tableName": "company",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `year` INTEGER NOT NULL, `name` TEXT NOT NULL, `firstQuarterBV` TEXT NOT NULL, `compareFirstQuarterBV` TEXT NOT NULL, `firstQuarterRP` TEXT NOT NULL, `compareFirstQuarterRP` TEXT NOT NULL, `firstQuarterDeductRP` TEXT NOT NULL, `compareFirstQuarterDeductRP` TEXT NOT NULL, `halfYearBV` TEXT NOT NULL, `compareHalfYearBV` TEXT NOT NULL, `halfYearRP` TEXT NOT NULL, `compareHalfYearRP` TEXT NOT NULL, `halfYearDeductRP` TEXT NOT NULL, `compareHalfYearDeductRP` TEXT NOT NULL, `thirdQuarterBV` TEXT NOT NULL, `compareThirdQuarterBV` TEXT NOT NULL, `thirdQuarterRP` TEXT NOT NULL, `compareThirdQuarterRP` TEXT NOT NULL, `thirdQuarterDeductRP` TEXT NOT NULL, `compareThirdQuarterDeductRP` TEXT NOT NULL, `yearBV` TEXT NOT NULL, `compareYearBV` TEXT NOT NULL, `yearRP` TEXT NOT NULL, `compareYearRP` TEXT NOT NULL, `yearDeductRP` TEXT NOT NULL, `compareYearDeductRP` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "year",
+            "columnName": "year",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "firstQuarterBV",
+            "columnName": "firstQuarterBV",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "compareFirstQuarterBV",
+            "columnName": "compareFirstQuarterBV",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "firstQuarterRP",
+            "columnName": "firstQuarterRP",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "compareFirstQuarterRP",
+            "columnName": "compareFirstQuarterRP",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "firstQuarterDeductRP",
+            "columnName": "firstQuarterDeductRP",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "compareFirstQuarterDeductRP",
+            "columnName": "compareFirstQuarterDeductRP",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "halfYearBV",
+            "columnName": "halfYearBV",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "compareHalfYearBV",
+            "columnName": "compareHalfYearBV",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "halfYearRP",
+            "columnName": "halfYearRP",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "compareHalfYearRP",
+            "columnName": "compareHalfYearRP",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "halfYearDeductRP",
+            "columnName": "halfYearDeductRP",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "compareHalfYearDeductRP",
+            "columnName": "compareHalfYearDeductRP",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thirdQuarterBV",
+            "columnName": "thirdQuarterBV",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "compareThirdQuarterBV",
+            "columnName": "compareThirdQuarterBV",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thirdQuarterRP",
+            "columnName": "thirdQuarterRP",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "compareThirdQuarterRP",
+            "columnName": "compareThirdQuarterRP",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thirdQuarterDeductRP",
+            "columnName": "thirdQuarterDeductRP",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "compareThirdQuarterDeductRP",
+            "columnName": "compareThirdQuarterDeductRP",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "yearBV",
+            "columnName": "yearBV",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "compareYearBV",
+            "columnName": "compareYearBV",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "yearRP",
+            "columnName": "yearRP",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "compareYearRP",
+            "columnName": "compareYearRP",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "yearDeductRP",
+            "columnName": "yearDeductRP",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "compareYearDeductRP",
+            "columnName": "compareYearDeductRP",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '4a8415b9245ca638b98ff74018a3c5c2')"
+    ]
+  }
+}

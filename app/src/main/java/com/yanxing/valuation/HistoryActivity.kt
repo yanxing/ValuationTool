@@ -1,6 +1,8 @@
 package com.yanxing.valuation
 
+import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yanxing.valuation.base.BaseActivity
 import com.yanxing.valuation.dao.DataDealViewModel
@@ -26,7 +28,7 @@ class HistoryActivity : BaseActivity<ActivityHistoryBinding>() {
         initEPSAdapter()
         intent.getStringExtra("number")?.let {
             ViewModelProvider(this).get(DataDealViewModel::class.java).apply {
-                getReport(it)
+                getReport(this@HistoryActivity,it)
                 getEPS(it)
                 reportLiveData.observe(this@HistoryActivity, {
                     mReports.addAll(it)
@@ -42,64 +44,67 @@ class HistoryActivity : BaseActivity<ActivityHistoryBinding>() {
 
     private fun initReportAdapter(){
         viewBinding.reportRecyclerView.layoutManager=LinearLayoutManager(this)
-        mReportAdapter=object :RecyclerViewAdapter<Report>(mReports,R.layout.adapter_report){
+        mReportAdapter = object : RecyclerViewAdapter<Report>(mReports, R.layout.adapter_report) {
             override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
                 super.onBindViewHolder(holder, position)
-                if (position==0){
-                    holder.setText(R.id.first,getString(R.string.yijidu))
-                    holder.setText(R.id.half,getString(R.string.zhongbao))
-                    holder.setText(R.id.third,getString(R.string.erjidu))
-                    holder.setText(R.id.year,getString(R.string.nianbao))
-                }else{
-                    mDataList[position-1]?.apply {
-                        holder.setText(R.id.date,year.toString()+"年")
+                if (position == 0) {
+                    holder.setText(R.id.first, getString(R.string.yijidu))
+                    holder.setText(R.id.half, getString(R.string.zhongbao))
+                    holder.setText(R.id.third, getString(R.string.erjidu))
+                    holder.setText(R.id.year, getString(R.string.nianbao))
+                    holder.findViewById<TextView>(R.id.first).textSize = 16.0f
+                    holder.findViewById<TextView>(R.id.half).textSize = 16.0f
+                    holder.findViewById<TextView>(R.id.third).textSize = 16.0f
+                    holder.findViewById<TextView>(R.id.year).textSize = 16.0f
+                } else {
+                    holder.findViewById<TextView>(R.id.first).textSize = 12.0f
+                    holder.findViewById<TextView>(R.id.half).textSize = 12.0f
+                    holder.findViewById<TextView>(R.id.third).textSize = 12.0f
+                    holder.findViewById<TextView>(R.id.year).textSize = 12.0f
+                    mDataList[position - 1]?.apply {
+                        holder.setText(R.id.date, year.toString() + "年")
                         holder.setText(
                             R.id.first,
-                            getString(R.string.yingyeshouru) + DoubleUtil.format(firstQuarterBV) + getString(
-                                R.string.tongbizengzhang
-                            ) + compareFirstQuarterBV + ")\n" +
+                            getString(R.string.yingyeshouru) + DoubleUtil.format(firstQuarterBV) + compareFirstQuarterBV + "\n"+
                                     getString(R.string.jinglirun) + DoubleUtil.format(firstQuarterRP) + getString(
                                 R.string.tongbizengzhang
-                            ) + compareFirstQuarterRP + ")\n" +
+                            ) + compareFirstQuarterRP + "\n"+
                                     getString(R.string.koufeijinglirun) + DoubleUtil.format(
                                 firstQuarterDeductRP
-                            ) + getString(R.string.tongbizengzhang) + compareFirstQuarterDeductRP + ")"
+                            ) + getString(R.string.tongbizengzhang) + compareFirstQuarterDeductRP
                         )
                         holder.setText(
                             R.id.half,
                             getString(R.string.yingyeshouru) + DoubleUtil.format(halfYearBV) + getString(
                                 R.string.tongbizengzhang
-                            ) + compareHalfYearBV + ")\n" +
+                            ) + compareHalfYearBV + "\n"+
                                     getString(R.string.jinglirun) + DoubleUtil.format(halfYearRP) + getString(
                                 R.string.tongbizengzhang
-                            ) + compareHalfYearRP + ")\n" +
-                                    getString(R.string.koufeijinglirun) + DoubleUtil.format(
-                                halfYearDeductRP
-                            ) + getString(R.string.tongbizengzhang) + compareHalfYearDeductRP + ")"
+                            ) + compareHalfYearRP + "\n"+getString(R.string.koufeijinglirun) + DoubleUtil.format(
+                            halfYearDeductRP
+                        ) + getString(R.string.tongbizengzhang) + compareHalfYearDeductRP
                         )
                         holder.setText(
                             R.id.third,
                             getString(R.string.yingyeshouru) + DoubleUtil.format(thirdQuarterBV) + getString(
                                 R.string.tongbizengzhang
-                            ) + compareThirdQuarterBV + ")\n" +
+                            ) + compareThirdQuarterBV +"\n"+
                                     getString(R.string.jinglirun) + DoubleUtil.format(thirdQuarterRP) + getString(
                                 R.string.tongbizengzhang
-                            ) + compareThirdQuarterRP + ")\n" +
-                                    getString(R.string.koufeijinglirun) + DoubleUtil.format(
+                            ) + compareThirdQuarterRP + "\n"+ getString(R.string.koufeijinglirun) + DoubleUtil.format(
                                 thirdQuarterDeductRP
-                            ) + getString(R.string.tongbizengzhang) + compareThirdQuarterDeductRP + ")"
+                            ) + getString(R.string.tongbizengzhang) + compareThirdQuarterDeductRP
                         )
                         holder.setText(
                             R.id.year,
                             getString(R.string.yingyeshouru) + DoubleUtil.format(yearBV) + getString(
                                 R.string.tongbizengzhang
-                            ) + compareYearBV + ")\n" +
+                            ) + compareYearBV +"\n"+
                                     getString(R.string.jinglirun) + DoubleUtil.format(yearRP) + getString(
                                 R.string.tongbizengzhang
-                            ) + compareYearRP + ")\n" +
-                                    getString(R.string.koufeijinglirun) + DoubleUtil.format(
+                            ) + compareYearRP + "\n"+getString(R.string.koufeijinglirun) + DoubleUtil.format(
                                 yearDeductRP
-                            ) + getString(R.string.tongbizengzhang) + compareYearDeductRP + ")"
+                            ) + getString(R.string.tongbizengzhang) + compareYearDeductRP
                         )
                     }
                 }
@@ -111,6 +116,8 @@ class HistoryActivity : BaseActivity<ActivityHistoryBinding>() {
         }
         viewBinding.reportRecyclerView.adapter=mReportAdapter
     }
+
+
 
     private fun initEPSAdapter(){
         viewBinding.epsRecyclerView.layoutManager=LinearLayoutManager(this)
@@ -134,7 +141,7 @@ class HistoryActivity : BaseActivity<ActivityHistoryBinding>() {
                 return super.getItemCount()+1
             }
         }
-        viewBinding.epsRecyclerView.adapter=mEPSAdapter
+       // viewBinding.epsRecyclerView.adapter=mEPSAdapter
     }
 
 }

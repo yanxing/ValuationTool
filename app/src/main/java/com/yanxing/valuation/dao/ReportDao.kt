@@ -8,5 +8,5 @@ import com.yanxing.valuation.model.Report
 interface ReportDao :BaseDao<Report>{
 
     @Query("select * from report where number=:number order by year")
-    fun findAllByNumber(number:String):ArrayList<Report>
+    fun findAllByNumber(number:String):List<Report>
 }

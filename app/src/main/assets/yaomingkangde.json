@@ -1,3 +1,28 @@
-{
-  "number": "SH:603259"
-}
+[{
+  "number": "SH:603259",
+  "firstQuarterBV": 3188000000,
+  "compareFirstQuarterBV": "",
+  "firstQuarterRP":303000000,
+  "compareFirstQuarterRP": "",
+  "firstQuarterDeductRP": 376000000,
+  "compareFirstQuarterDeductRP": "",
+  "halfYearBV": 7231000000,
+  "compareHalfYearBV": "",
+  "halfYearRP": 1717000000,
+  "compareHalfYearRP": "",
+  "halfYearDeductRP": 1131000000,
+  "compareHalfYearDeductRP": "",
+  "thirdQuarterBV": 11815000000,
+  "compareThirdQuarterBV": "",
+  "thirdQuarterRP": 2368000000,
+  "compareThirdQuarterRP":"",
+  "thirdQuarterDeductRP": 1654000000,
+  "compareThirdQuarterDeductRP": "",
+  "yearBV": 16535000000,
+  "compareYearBV": "",
+  "yearRP": 2960000000,
+  "compareYearRP": "",
+  "yearDeductRP": 2385000000,
+  "compareYearDeductRP": "",
+  "year": 2020
+}]

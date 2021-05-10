@@ -1,11 +1,14 @@
 package com.yanxing.valuation.dao
 
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.gson.Gson
 import com.yanxing.valuation.model.Company
 import com.yanxing.valuation.model.EPS
 import com.yanxing.valuation.model.Report
 import com.yanxing.valuation.util.DoubleUtil
+import com.yanxing.valuation.util.getYaoMingReport
 
 class DataDealViewModel :ViewModel() {
 
@@ -18,8 +21,9 @@ class DataDealViewModel :ViewModel() {
         companyLiveData.value=companys
     }
 
-    fun getReport(number:String){
-        val reports=RoomManage.roomDataBase.getReportDao().findAllByNumber(number)
+    fun getReport(context: Context,number:String){
+        //val reports=RoomManage.roomDataBase.getReportDao().findAllByNumber(number)
+        val reports=getYaoMingReport(context)
         //查询计算同比增长，否则每次添加修改都需要计算
         for (index in reports.size-1 downTo 0){
             if (index-1>0) {
@@ -30,7 +34,7 @@ class DataDealViewModel :ViewModel() {
                             DoubleUtil.sub(
                                 reports[index].firstQuarterBV,
                                 reports[index - 1].firstQuarterBV
-                            ) / reports[index - 1].firstQuarterBV
+                            ) / reports[index - 1].firstQuarterBV!!
                         ) + "%"
                 }
                 if (reports[index-1].firstQuarterRP!=0.0) {
@@ -39,7 +43,7 @@ class DataDealViewModel :ViewModel() {
                             DoubleUtil.sub(
                                 reports[index].firstQuarterRP,
                                 reports[index - 1].firstQuarterRP
-                            ) / reports[index - 1].firstQuarterRP
+                            ) / reports[index - 1].firstQuarterRP!!
                         ) + "%"
                 }
                 if (reports[index-1].firstQuarterDeductRP!=0.0) {
@@ -48,7 +52,7 @@ class DataDealViewModel :ViewModel() {
                             DoubleUtil.sub(
                                 reports[index].firstQuarterDeductRP,
                                 reports[index - 1].firstQuarterDeductRP
-                            ) / reports[index - 1].firstQuarterDeductRP
+                            ) / reports[index - 1].firstQuarterDeductRP!!
                         ) + "%"
                 }
 
@@ -59,7 +63,7 @@ class DataDealViewModel :ViewModel() {
                             DoubleUtil.sub(
                                 reports[index].halfYearBV,
                                 reports[index - 1].halfYearBV
-                            ) / reports[index - 1].halfYearBV
+                            ) / reports[index - 1].halfYearBV!!
                         ) + "%"
                 }
                 if (reports[index-1].halfYearRP!=0.0) {
@@ -68,7 +72,7 @@ class DataDealViewModel :ViewModel() {
                             DoubleUtil.sub(
                                 reports[index].halfYearRP,
                                 reports[index - 1].halfYearRP
-                            ) / reports[index - 1].halfYearRP
+                            ) / reports[index - 1].halfYearRP!!
                         ) + "%"
                 }
                 if (reports[index-1].halfYearDeductRP!=0.0) {
@@ -77,7 +81,7 @@ class DataDealViewModel :ViewModel() {
                             DoubleUtil.sub(
                                 reports[index].halfYearDeductRP,
                                 reports[index - 1].halfYearDeductRP
-                            ) / reports[index - 1].halfYearDeductRP
+                            ) / reports[index - 1].halfYearDeductRP!!
                         ) + "%"
                 }
 
@@ -88,7 +92,7 @@ class DataDealViewModel :ViewModel() {
                             DoubleUtil.sub(
                                 reports[index].thirdQuarterBV,
                                 reports[index - 1].thirdQuarterBV
-                            ) / reports[index - 1].thirdQuarterBV
+                            ) / reports[index - 1].thirdQuarterBV!!
                         ) + "%"
                 }
                 if (reports[index-1].thirdQuarterRP!=0.0) {
@@ -97,7 +101,7 @@ class DataDealViewModel :ViewModel() {
                             DoubleUtil.sub(
                                 reports[index].thirdQuarterRP,
                                 reports[index - 1].thirdQuarterRP
-                            ) / reports[index - 1].thirdQuarterRP
+                            ) / reports[index - 1].thirdQuarterRP!!
                         ) + "%"
                 }
                 if (reports[index-1].thirdQuarterDeductRP!=0.0) {
@@ -106,7 +110,7 @@ class DataDealViewModel :ViewModel() {
                             DoubleUtil.sub(
                                 reports[index].thirdQuarterDeductRP,
                                 reports[index - 1].thirdQuarterDeductRP
-                            ) / reports[index - 1].thirdQuarterDeductRP
+                            ) / reports[index - 1].thirdQuarterDeductRP!!
                         ) + "%"
                 }
 
@@ -117,7 +121,7 @@ class DataDealViewModel :ViewModel() {
                             DoubleUtil.sub(
                                 reports[index].yearBV,
                                 reports[index - 1].yearBV
-                            ) / reports[index - 1].yearBV
+                            ) / reports[index - 1].yearBV!!
                         ) + "%"
                 }
                 if (reports[index-1].yearRP!=0.0) {
@@ -126,7 +130,7 @@ class DataDealViewModel :ViewModel() {
                             DoubleUtil.sub(
                                 reports[index].yearRP,
                                 reports[index - 1].yearRP
-                            ) / reports[index - 1].yearRP
+                            ) / reports[index - 1].yearRP!!
                         ) + "%"
                 }
                 if (reports[index-1].yearDeductRP!=0.0) {
@@ -135,7 +139,7 @@ class DataDealViewModel :ViewModel() {
                             DoubleUtil.sub(
                                 reports[index].yearDeductRP,
                                 reports[index - 1].yearDeductRP
-                            ) / reports[index - 1].yearDeductRP
+                            ) / reports[index - 1].yearDeductRP!!
                         ) + "%"
                 }
             }

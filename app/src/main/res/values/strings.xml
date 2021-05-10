@@ -4,11 +4,19 @@
     <string name="zhongbao">中报</string>
     <string name="erjidu">二季度</string>
     <string name="nianbao">年报</string>
-    <string name="yingyeshouru">营业收入：</string>
-    <string name="tongbizengzhang">(同比增长</string>
-    <string name="jinglirun">净利润：</string>
-    <string name="koufeijinglirun">扣非净利润：</string>
+    <string name="yingyeshouru">1.营业收入：</string>
+    <string name="tongbizengzhang"></string>
+    <string name="jinglirun">2.净利润：</string>
+    <string name="koufeijinglirun">3.扣非净利润：</string>
     <string name="real">真实值</string>
     <string name="forecast">预测值</string>
     <string name="year_eps">年份/每股收益</string>
+    <string name="yucemeigushouyi">预测每股收益</string>
+    <string name="zongguben">总股本</string>
+    <string name="yucejinglirun">预测净利润</string>
+    <string name="zongshizhi">总市值</string>
+    <string name="shiyinglv">预测市盈率</string>
+    <string name="mubiaoshiyinglv">目标市盈率</string>
+    <string name="dangqianshiyinglv">当前市盈率</string>
+    <string name="meigujiage">当前每股价格</string>
 </resources>

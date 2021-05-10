@@ -10,15 +10,16 @@ import java.io.IOException
 import java.io.InputStreamReader
 
 
-fun Gson.getYaoMingReport(context: Context): List<Report> {
+fun getYaoMingReport(context: Context): List<Report> {
     val json = getAssets(context, "yaomingkangde.json")
     val reports = ArrayList<Report>()
     try {
         val jsonArray = JSONArray(json)
         for (index in 0..jsonArray.length()) {
-            reports.add(Gson().fromJson(json[index].toString(), Report::class.java))
+            reports.add(Gson().fromJson(jsonArray[index].toString(), Report::class.java))
         }
     } catch (e: Exception) {
+        e.message
     }
     return reports
 }

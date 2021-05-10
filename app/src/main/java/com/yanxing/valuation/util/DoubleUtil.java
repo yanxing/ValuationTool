@@ -43,7 +43,7 @@ public class DoubleUtil {
      * @param v2 减数
      * @return 两个参数的差
      */
-    public static double sub(double v1, double v2)
+    public static double sub(Double v1, Double v2)
     {
         BigDecimal b1 = new BigDecimal(Double.toString(v1));
         BigDecimal b2 = new BigDecimal(Double.toString(v2));

@@ -67,13 +67,7 @@ public class DoubleUtil {
         if (v1==null){
             return "";
         }
-        if (v1<1000000){
-            return formatTWODigits(v1)+"元";
-        }else if (v1<100000000){
-            return formatTWODigits(v1/10000000.0)+"千万";
-        }else {
-            return formatTWODigits(v1/100000000.0)+"亿元";
-        }
+        return formatTWODigits(v1/100000000.0)+"亿";
     }
 
     /**

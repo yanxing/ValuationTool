@@ -2,12 +2,11 @@
     <string name="app_name">ValuationTool</string>
     <string name="yijidu">一季度</string>
     <string name="zhongbao">中报</string>
-    <string name="erjidu">二季度</string>
+    <string name="erjidu">三季度</string>
     <string name="nianbao">年报</string>
-    <string name="yingyeshouru">1.营业收入：</string>
-    <string name="tongbizengzhang"></string>
-    <string name="jinglirun">2.净利润：</string>
-    <string name="koufeijinglirun">3.扣非净利润：</string>
+    <string name="yingyeshouru">营业：</string>
+    <string name="jinglirun">净利：</string>
+    <string name="koufeijinglirun">扣非：</string>
     <string name="real">真实值</string>
     <string name="forecast">预测值</string>
     <string name="year_eps">年份/每股收益</string>
